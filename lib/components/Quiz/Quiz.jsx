@@ -41,7 +41,6 @@ export class Quiz extends Component {
 
   reset() {
     this.setState({ submitted: false })
-    this.props.updateFinal(0)
   }
 
   render() {
