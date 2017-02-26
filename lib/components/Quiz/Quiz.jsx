@@ -33,6 +33,17 @@ export class Quiz extends Component {
       .then(() => this.setState({ submitted: true }))
   }
 
+  scoreCheck() {
+    const { allScores, quizData } = this.props;
+    const keys = Object.keys(allScores)
+    return !keys.length || keys.length !== quizData.questions.length ? true : false
+  }
+
+  reset() {
+    this.setState({ submitted: false })
+    this.props.updateFinal(0)
+  }
+
   render() {
     const { questions, quizData } = this.props;
     const quizQuestions = questions.map(obj => {
@@ -46,12 +57,18 @@ export class Quiz extends Component {
 
     return(
       <div>
-        {this.state.submitted ? <Response closePopup={() => this.setState({ submitted: false })}/> : null}
+        {this.state.submitted ? <Response closePopup={this.reset.bind(this)}/> : null}
 
           <h1 className='quiz-title'>{quizData.title}</h1>
           <div className='quiz-container'>
+
             {quizQuestions}
-            <button className='submit-btn' onClick={this.handleSubmit.bind(this)}>Submit</button>
+
+            <button className='submit-btn'
+                    onClick={this.handleSubmit.bind(this)}
+                    disabled={this.scoreCheck()}>
+              Submit
+            </button>
           </div>
       </div>
     )
