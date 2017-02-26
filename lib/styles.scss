@@ -79,7 +79,7 @@ a, a:active, a:visited, {
   background-color: $button-background;
   color: $button-color;
   border-radius: 5px;
-  box-shadow: 1px 1px 2px blue;
+  box-shadow: 1px 1px 2px gray;
   &:hover {
     cursor: pointer;
     background-color: $button-color;
@@ -129,11 +129,11 @@ a, a:active, a:visited, {
   background-color: $button-background;
   color: $button-color;
   border-radius: 50%;
-  box-shadow: 1px 1px 2px blue;
+  // box-shadow: 1px 1px 2px #fff959;
   &:hover {
     cursor: pointer;
-    background-color: $button-color;
-    color: $button-background
+    background-color: #fff959;
+    color: black;
   }
   &:focus {
     outline: none;
