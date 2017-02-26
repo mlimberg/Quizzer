@@ -88,6 +88,12 @@ a, a:active, a:visited, {
   &:focus {
     outline: none;
   }
+  &:disabled, &:disabled:hover {
+    background-color: gray;
+    cursor: default;
+    color: black;
+    box-shadow: none;
+  }
 }
 
 .response-popup {
