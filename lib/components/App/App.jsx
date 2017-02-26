@@ -12,9 +12,10 @@ export class App extends Component {
   }
 
   componentWillMount() {
-    fetch('http://localhost:3001/quizzes')
+    fetch('http://localhost:3001/quizzes/1')
       .then(res => res.json())
-      .then(res => this.props.storeQuizData(res.quizzes[0]))
+      .then(res => this.props.storeQuizData(res.quiz))
+      // .then(res => this.props.storeQuizData(res.quizzes[0]))
   }
 
   render() {

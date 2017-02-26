@@ -1,5 +1,135 @@
-// $variable-test: green;
-//
-// body {
-//   background-color: $variable-test;
-// }
+@import url('https://fonts.googleapis.com/css?family=Amiko|Gloria+Hallelujah|Sansita|Share+Tech+Mono|Ubuntu');
+
+$font-1: 'Sansita', sans-serif;
+$font-2: 'Amiko', sans-serif;
+$font-3: 'Ubuntu', sans-serif;
+$font-4: 'Gloria Hallelujah', cursive;
+$font-5: 'Share Tech Mono', monospace;
+
+$button-background: #abff77;
+$button-color: black;
+
+$header-background: #abff77;
+
+body {
+  background-color: #e8e8e8;
+  font-family: $font-3;
+  position: relative;
+}
+
+a, a:active, a:visited, {
+  text-decoration: none;
+}
+
+.quiz-container {
+  margin: 0px 25px;
+}
+
+.quiz-title {
+  background-color: $header-background;
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  font-family: $font-5;
+  text-align: center;
+  padding: 8px;
+}
+
+.quiz-question-title {
+  font-size: 16px;
+  border-bottom: 3px solid $header-background;
+}
+
+.question-block {
+  margin-bottom: -6px;
+}
+
+.mult-choice-answer {
+  display: block;
+  font-weight: lighter;
+  font-size: 14px;
+  margin: 4px;
+}
+
+.radio-btn {
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.answers-container {
+  margin-left: 25px;
+}
+
+.answer-text {
+  font-weight: lighter;
+}
+
+.submit-btn {
+  border: none;
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+  width: 80px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: $button-background;
+  color: $button-color;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px blue;
+  &:hover {
+    cursor: pointer;
+    background-color: $button-color;
+    color: $button-background
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.response-popup {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  // background-color: #4f5051;
+  background-color: rgba(64, 64, 64, 0.86);
+  top: 120px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.response-text {
+  margin: 80px 5px;
+  color: $header-background;
+  font-size: 22px;
+  text-align: center;
+}
+
+.btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: $button-background;
+  color: $button-color;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px blue;
+  &:hover {
+    cursor: pointer;
+    background-color: $button-color;
+    color: $button-background
+  }
+  &:focus {
+    outline: none;
+  }
+}

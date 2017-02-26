@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import QuizContainer from '../../containers/QuizContainer/QuizContainer';
-import Answer from '../Answer/Answer';
+import Answers from '../Answers/Answers';
 
 export class QuizQuestion extends Component {
 
   render() {
-    const quizAnswers = this.props.answers.map((answer, i) => {
-      return(
-        <Answer text={answer.title} key={i}/>
-      )
-    })
-
+    const { answers, title, id } = this.props;
     return(
-      <div>
-        <h3>{this.props.title}</h3>
-        {quizAnswers}
+      <div className='question-block'>
+        <h3>
+          <span className='quiz-question-title'>{title}</span>
+        </h3>
+        <form>
+          <Answers answers={answers} questionId={id} />
+        </form>
       </div>
     )
   }

@@ -6,9 +6,12 @@ import { bindActionCreators } from 'redux';
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(actions, dispatch)
 
-const mapStateToProps = (state) => ({
-  quizData: state.quizData,
-  questions: state.quizData.questions || []
+const mapStateToProps = ({ quizData, allScores, finalScore, response }) => ({
+  quizData,
+  questions: quizData.questions || [],
+  allScores,
+  finalScore,
+  response
 })
 
 export default connect(mapStateToProps, mapDispatchToProps);
