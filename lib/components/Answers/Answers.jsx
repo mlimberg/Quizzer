@@ -11,11 +11,7 @@ class Answers extends Component {
   }
 
   setScore(e, score, id) {
-    this.setState({ answer: e.target.value, scores: score }, () => {
-      const copy = Object.assign({}, this.props.allScores)
-      copy[id] = score;
-      this.props.updateScores(copy)
-    })
+    this.setState({ answer: e.target.value, scores: score })
   }
 
   render() {

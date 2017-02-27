@@ -11,38 +11,6 @@ export class Quiz extends Component {
     }
   }
 
-  handleSubmit() {
-    const copy = Object.assign({}, this.props.allScores)
-    const keys = Object.keys(copy);
-    const score = keys.reduce((sum, key) => {
-      return sum += copy[key]
-    }, 0)
-    this.submitScore(score);
-  }
-
-  submitScore(score) {
-    fetch('http://localhost:3001/scores', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ score: score })
-    })
-      .then(res => res.json())
-      .then(res => this.props.quizResponse(res.score))
-      .then(() => this.setState({ submitted: true }))
-  }
-
-  scoreCheck() {
-    const { allScores, quizData } = this.props;
-    const keys = Object.keys(allScores)
-    return !keys.length || keys.length !== quizData.questions.length ? true : false
-  }
-
-  reset() {
-    this.setState({ submitted: false })
-  }
-
   render() {
     const { questions, quizData } = this.props;
     const quizQuestions = questions.map(obj => {
@@ -63,9 +31,7 @@ export class Quiz extends Component {
 
             {quizQuestions}
 
-            <button className='submit-btn'
-                    onClick={this.handleSubmit.bind(this)}
-                    disabled={this.scoreCheck()}>
+            <button className='submit-btn'>
               Submit
             </button>
           </div>
